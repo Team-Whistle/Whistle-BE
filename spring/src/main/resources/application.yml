@@ -1,0 +1,34 @@
+
+spring:
+  #  datasource:
+  #    url: jdbc:postgresql://${POSTGRES_DB_SERVER_ADDRESS:localhost}:${POSTGRES_DB_SERVER_PORT:5432}/
+  #    username: ${POSTGRES_USER:postgres}
+  #    password: ${POSTGRES_PASSWORD:example}
+  # H2 Setting Info (H2 Console? ???? ?? ???? ??)
+  h2:
+    console:
+      enabled: true
+    profiles:
+      active: local
+    datasource:
+      driver-class-name: org.h2.Driver
+      url: jdbc:h2:tcp://localhost/~/test;DB_CLOSE_DELAY=-1
+      username: sa
+      password:
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: create
+      show-sql: true
+      format-sql: true
+      type: info
+      use-sql-comments: true
+      properties:
+        hibernate.use_sql_comments: true
+        hibernate.format_sql: true
+
+jwt:
+  secretKey: secret
+  issuer: ehjeong
+  expirationMinute: 10
