@@ -43,9 +43,7 @@ jobs:
         shell: bash
         
       - name: Build with Gradle
-        run: |
-          ./spring/gradlew clean    # Clean existing build artifacts
-          ./spring/gradlew build
+        run: ../spring/gradlew build
         shell: bash
         
       - name: Make zip file
