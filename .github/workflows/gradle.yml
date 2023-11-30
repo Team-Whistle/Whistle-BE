@@ -39,15 +39,15 @@ jobs:
           distribution: 'temurin'
 
       - name: Grant execute permission for gradlew
-        run: chmod +x ./spring/gradlew
+        run: chmod +x ./gradlew
         shell: bash
         
       - name: Build with Gradle
-        run: ./spring/gradlew build
+        run: ./gradlew build
         shell: bash
         
       - name: Make zip file
-        run: zip -r ./spring/Whistle.zip .
+        run: zip -r ./Whistle.zip .
         shell: bash
           
       - name: Configure AWS credentials
@@ -58,7 +58,7 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
           
       - name: Upload to S3
-        run: aws s3 cp --region ap-northeast-2 ./spring/Whistle.zip s3://$S3_BUCKET_NAME/$PROJECT_NAME/Whistle.zip
+        run: aws s3 cp --region ap-northeast-2 ./Whistle.zip s3://$S3_BUCKET_NAME/$PROJECT_NAME/Whistle.zip
 
       - name: Code Deploy
         run: aws deploy create-deployment --application-name Whistle --deployment-config-name CodeDeployDefault.AllAtOnce --deployment-group-name Whistle --s3-location bucket=$S3_BUCKET_NAME,bundleType=zip,key=$PROJECT_NAME/Whistle.zip
