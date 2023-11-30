@@ -13,12 +13,12 @@ permissions:
 
 hooks:
   ApplicationStart:
-    - location: spring/scripts/run_new_was.sh
+    - location: scripts/run_new_was.sh
       timeout: 180
       runas: ubuntu
-    - location: spring/scripts/health_check.sh
+    - location: scripts/health_check.sh
       timeout: 180
       runas: ubuntu
-    - location: spring/scripts/switch.sh
+    - location: scripts/switch.sh
       timeout: 180
       runas: ubuntu
