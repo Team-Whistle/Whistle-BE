@@ -34,11 +34,11 @@ jobs:
           distribution: 'temurin'
 
       - name: Grant execute permission for gradlew
-        run: chmod +x ./spring/gradlew
+        run: chmod +x ./gradlew
         shell: bash
         
       - name: Build with Gradle
-        run: ./spring/gradlew build
+        run: ./gradlew build
         shell: bash
         
       - name: Make zip file
