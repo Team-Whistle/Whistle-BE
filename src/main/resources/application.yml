@@ -1,4 +1,9 @@
 
+jasypt:
+  encryptor:
+    bean: jasyptStringEncryptor
+    password: ${JASYPT_PASSWORD}
+
 spring:
   datasource:
     url: ENC(Rdl6ImKbX9Nbam9MjiGxlZkO0Oeq4ut8zTXZpijb8qxN4SoGWvjjRJy6P7tOjr995K8z6lxTwiYauGtL9Kc7O810j977+9O3Dra7xODtcHhdO9SOvZLl/g==)
@@ -36,7 +41,3 @@ jwt:
   issuer: ehjeong
   expirationMinute: 10
 
-jasypt:
-  encryptor:
-    bean: jasyptStringEncryptor
-    password: ${JASYPT_PASSWORD}
