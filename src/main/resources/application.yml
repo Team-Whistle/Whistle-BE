@@ -2,7 +2,7 @@
 jasypt:
   encryptor:
     bean: jasyptStringEncryptor
-    password: "#{systemEnvironment['JASYPT_PASSWORD']}"
+    password: "#{systemProperties['JASYPT_PASSWORD']}"
 
 spring:
   datasource:
