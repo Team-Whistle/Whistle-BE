@@ -7,9 +7,9 @@ jasypt:
 
 spring:
   datasource:
-    url: ENC(Rdl6ImKbX9Nbam9MjiGxlZkO0Oeq4ut8zTXZpijb8qxN4SoGWvjjRJy6P7tOjr995K8z6lxTwiYauGtL9Kc7O810j977+9O3Dra7xODtcHhdO9SOvZLl/g==)
-    username: ENC(OSssUT4Wc7ZRNbCE1VBs4zY6JBjxApaz)
-    password: ENC(Zn0F+0qFEhiwNq0p/YL965XaV1kXbetM)
+    url: ENC(nMu34VH1h2uWLnyvKEAJcTbB2uSQweNl25+2aJ5bLz2hL5MFlTz+uR4U0vfiivCTbL5KidpCK1+dR5Pj7PWloWWyDtmk0JfT1r3u+o2enovykGT/+cp7gg==)
+    username: ENC(3hlhAkL3m3M1lWLhVirHTT3RwgVBRydq)
+    password: ENC(LJPXVT7wb+VqEWC9RGl9P1FeO5Hb9HSb)
   # H2 Setting Info (H2 Console? ???? ?? ???? ??)
 #  h2:
 #    console:
