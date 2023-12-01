@@ -1,4 +1,4 @@
-package com.core.controller;
+package com.feature.user.controller;
 
 import com.feature.user.dto.LoginRequest;
 import com.feature.user.dto.LoginResponse;

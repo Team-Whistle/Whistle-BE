@@ -20,18 +20,29 @@ public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long userId;
 
-	private String name;
+	private String userNm;
 
-	@Column(unique = true)
-	private String username;
+	private String userMobno;
 
-	private String password;
+	private String userEmail;
 
-	private String email;
+	private String userStCd;
 
 	@Enumerated(EnumType.STRING)
-	private UserRole userRole;
+	private UserRole userTypeCd;
+
+	private String snsTypeCd;
+
+	private String gender;
+
+	private String regDtm;
+
+	private String updDtm;
+
+	private String photo_path;
+
+	private String photo_url;
 
 }

@@ -1,20 +1,20 @@
 
 spring:
-  #  datasource:
-  #    url: jdbc:postgresql://${POSTGRES_DB_SERVER_ADDRESS:localhost}:${POSTGRES_DB_SERVER_PORT:5432}/
-  #    username: ${POSTGRES_USER:postgres}
-  #    password: ${POSTGRES_PASSWORD:example}
+  datasource:
+    url: ENC(Rdl6ImKbX9Nbam9MjiGxlZkO0Oeq4ut8zTXZpijb8qxN4SoGWvjjRJy6P7tOjr995K8z6lxTwiYauGtL9Kc7O810j977+9O3Dra7xODtcHhdO9SOvZLl/g==)
+    username: ENC(OSssUT4Wc7ZRNbCE1VBs4zY6JBjxApaz)
+    password: ENC(Zn0F+0qFEhiwNq0p/YL965XaV1kXbetM)
   # H2 Setting Info (H2 Console? ???? ?? ???? ??)
-  h2:
-    console:
-      enabled: true
-    profiles:
-      active: local
-    datasource:
-      driver-class-name: org.h2.Driver
-      url: jdbc:h2:tcp://localhost/~/test;DB_CLOSE_DELAY=-1
-      username: sa
-      password:
+#  h2:
+#    console:
+#      enabled: true
+#    profiles:
+#      active: local
+#    datasource:
+#      driver-class-name: org.h2.Driver
+#      url: jdbc:h2:tcp://localhost/~/test;DB_CLOSE_DELAY=-1
+#      username: sa
+#      password:
 
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
@@ -35,3 +35,7 @@ jwt:
   secretKey: secret
   issuer: ehjeong
   expirationMinute: 10
+
+jasypt:
+  encryptor:
+    bean: jasyptStringEncryptor

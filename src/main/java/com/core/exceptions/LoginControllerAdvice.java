@@ -1,6 +1,6 @@
 package com.core.exceptions;
 
-import com.core.controller.LoginController;
+import com.feature.user.controller.LoginController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;

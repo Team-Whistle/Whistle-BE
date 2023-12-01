@@ -8,7 +8,7 @@ import com.feature.user.dto.RegistrationRequest;
 import com.feature.user.dto.RegistrationResponse;
 import com.feature.user.repo.UserMapper;
 import com.core.utils.GeneralMessageAccessor;
-import com.core.service.UserValidationService;
+import com.feature.user.service.UserValidationService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User findByUsername(String username) {
 
-		return userRepository.findByUsername(username);
+		return userRepository.findByUserNm(username);
 	}
 
 	@Override
@@ -46,8 +46,8 @@ public class UserServiceImpl implements UserService {
 		userValidationService.validateUser(registrationRequest);
 
 		final User user = UserMapper.INSTANCE.convertToUser(registrationRequest);
-		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-		user.setUserRole(UserRole.USER);
+//		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+		user.setUserTypeCd(UserRole.USER);
 
 		userRepository.save(user);
 

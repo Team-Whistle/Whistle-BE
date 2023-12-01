@@ -1,4 +1,4 @@
-package com.core.service;
+package com.feature.user.service;
 
 import com.core.exceptions.RegistrationException;
 import com.core.utils.ExceptionMessageAccessor;
@@ -37,7 +37,7 @@ public class UserValidationService {
 
 	private void checkUsername(String username) {
 
-		final boolean existsByUsername = userRepository.existsByUsername(username);
+		final boolean existsByUsername = userRepository.existsByUserNm(username);
 
 		if (existsByUsername) {
 
@@ -51,7 +51,7 @@ public class UserValidationService {
 
 	private void checkEmail(String email) {
 
-		final boolean existsByEmail = userRepository.existsByEmail(email);
+		final boolean existsByEmail = userRepository.existsByUserEmail(email);
 
 		if (existsByEmail) {
 
