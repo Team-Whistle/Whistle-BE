@@ -26,7 +26,7 @@ public class RegistrationController {
 	@PostMapping
 	public ResponseEntity<RegistrationResponse> registrationRequest(@Valid @RequestBody RegistrationRequest registrationRequest) {
 
-		final RegistrationResponse registrationResponse = userService.registration(registrationRequest);
+		final RegistrationResponse registrationResponse = userService.registration(registrationRequest.getUserEmail());
 
 		return ResponseEntity.status(HttpStatus.CREATED).body(registrationResponse);
 	}

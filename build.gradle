@@ -38,11 +38,13 @@ dependencies {
     implementation 'org.apache.commons:commons-lang3'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.mapstruct:mapstruct:1.5.3.Final'
-    implementation 'org.mapstruct:mapstruct-processor:1.5.3.Final'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
     implementation 'com.auth0:java-jwt:4.3.0'
     implementation 'com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.5'
     testImplementation("org.junit.platform:junit-platform-launcher:1.5.2")
     testImplementation("org.junit.jupiter:junit-jupiter:5.5.2")
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    implementation 'org.json:json:20210307'
 
 }
 

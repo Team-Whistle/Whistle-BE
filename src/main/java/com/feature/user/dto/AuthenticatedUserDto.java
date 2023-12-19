@@ -1,5 +1,6 @@
 package com.feature.user.dto;
 
+import com.feature.user.domain.User;
 import com.feature.user.domain.UserRole;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,5 +23,7 @@ public class AuthenticatedUserDto {
 	private String password;
 
 	private UserRole userRole;
+
+	private String userEmail;
 
 }

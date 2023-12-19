@@ -31,7 +31,7 @@ public class User {
 	private String userStCd;
 
 	@Enumerated(EnumType.STRING)
-	private UserRole userTypeCd;
+	private UserRole userType;
 
 	private String snsTypeCd;
 
@@ -45,4 +45,10 @@ public class User {
 
 	private String photo_url;
 
+	private String password;
+
+	@Builder
+	public User (String userEmail){
+		this.userEmail = userEmail;
+	}
 }

@@ -28,11 +28,11 @@ public class UserValidationService {
 
 	public void validateUser(RegistrationRequest registrationRequest) {
 
-		final String email = registrationRequest.getEmail();
-		final String username = registrationRequest.getUsername();
+		final String email = registrationRequest.getUserEmail();
+//		final String username = registrationRequest.getUsername();
 
 		checkEmail(email);
-		checkUsername(username);
+//		checkUsername(username);
 	}
 
 	private void checkUsername(String username) {

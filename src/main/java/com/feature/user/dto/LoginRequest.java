@@ -16,10 +16,15 @@ import javax.validation.constraints.NotEmpty;
 @NoArgsConstructor
 public class LoginRequest {
 
-	@NotEmpty(message = "{login_username_not_empty}")
-	private String username;
+//	@NotEmpty(message = "{login_username_not_empty}")
+//	private String username;
+//
+//	@NotEmpty(message = "{login_password_not_empty}")
+//	private String password;
 
-	@NotEmpty(message = "{login_password_not_empty}")
-	private String password;
+	@NotEmpty
+	private String token;
 
+	@NotEmpty
+	private String snsType;
 }

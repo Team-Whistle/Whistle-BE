@@ -1,18 +1,12 @@
 package com.core.security.service;
 
-import com.feature.user.dto.AuthenticatedUserDto;
-import com.feature.user.domain.UserRole;
+import com.core.exceptions.NotFoundException;
+import com.feature.user.domain.User;
+import com.feature.user.repo.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-
-import java.util.Collections;
-import java.util.Objects;
 
 /**
  * Created on July, 2023
@@ -24,24 +18,17 @@ import java.util.Objects;
 @RequiredArgsConstructor
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-	private static final String USERNAME_OR_PASSWORD_INVALID = "Invalid username or password.";
-
-	private final UserService userService;
+	private final UserRepository userRepository;
 
 	@Override
-	public UserDetails loadUserByUsername(String username) {
+	public UserDetailsImpl loadUserByUsername(String username) {
 
-		final AuthenticatedUserDto authenticatedUser = userService.findAuthenticatedUserByUsername(username);
+		User user = userRepository.findByUserEmail(username);
 
-		if (Objects.isNull(authenticatedUser)) {
-			throw new UsernameNotFoundException(USERNAME_OR_PASSWORD_INVALID);
+		if (user == null) {
+			throw new NotFoundException("사용자를 찾을수 없습니다.","05");
 		}
 
-		final String authenticatedUsername = authenticatedUser.getUsername();
-		final String authenticatedPassword = authenticatedUser.getPassword();
-		final UserRole userRole = authenticatedUser.getUserRole();
-		final SimpleGrantedAuthority grantedAuthority = new SimpleGrantedAuthority(userRole.name());
-
-		return new User(authenticatedUsername, authenticatedPassword, Collections.singletonList(grantedAuthority));
+		return new UserDetailsImpl(user);
 	}
 }

@@ -35,9 +35,14 @@ public class UserServiceImpl implements UserService {
 	private final GeneralMessageAccessor generalMessageAccessor;
 
 	@Override
-	public User findByUsername(String username) {
+	public User findByUserEmail(String username) {
 
-		return userRepository.findByUserNm(username);
+		return userRepository.findByUserEmail(username);
+	}
+
+	@Override
+	public RegistrationResponse registration(String username) {
+		return null;
 	}
 
 	@Override
@@ -47,11 +52,11 @@ public class UserServiceImpl implements UserService {
 
 		final User user = UserMapper.INSTANCE.convertToUser(registrationRequest);
 //		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-		user.setUserTypeCd(UserRole.USER);
+		user.setUserType(UserRole.USER);
 
 		userRepository.save(user);
 
-		final String username = registrationRequest.getUsername();
+		final String username = registrationRequest.getUserEmail();
 		final String registrationSuccessMessage = generalMessageAccessor.getMessage(null, REGISTRATION_SUCCESSFUL, username);
 
 		log.info("{} registered successfully!", username);
@@ -60,9 +65,9 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public AuthenticatedUserDto findAuthenticatedUserByUsername(String username) {
+	public AuthenticatedUserDto findAuthenticatedUserByUserEmail(String username) {
 
-		final User user = findByUsername(username);
+		final User user = findByUserEmail(username);
 
 		return UserMapper.INSTANCE.convertToAuthenticatedUserDto(user);
 	}

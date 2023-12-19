@@ -13,10 +13,12 @@ import com.feature.user.dto.RegistrationRequest;
  */
 public interface UserService {
 
-	User findByUsername(String username);
+	User findByUserEmail(String username);
+
+	RegistrationResponse registration(String username);
 
 	RegistrationResponse registration(RegistrationRequest registrationRequest);
 
-	AuthenticatedUserDto findAuthenticatedUserByUsername(String username);
+	AuthenticatedUserDto findAuthenticatedUserByUserEmail(String username);
 
 }
